@@ -8,6 +8,8 @@
     "dev": "nodemon src/index.js",
     "build": "tsc",
     "deploy": "gcloud app deploy",
+    "deploy-python": "gcloud app deploy app_python.yaml",
+    "start-python": "python run_python.py",
     "test": "jest"
   },
   "dependencies": {

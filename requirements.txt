@@ -1,0 +1,15 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+google-cloud-bigquery==3.13.0
+google-cloud-aiplatform==1.38.1
+httpx==0.25.2
+pydantic==2.5.0
+python-dotenv==1.0.0
+asyncio==3.4.3
+aiohttp==3.9.1
+python-multipart==0.0.6
+requests==2.31.0
+pandas==2.1.4
+numpy==1.25.2
+datetime==5.3
+typing-extensions==4.8.0

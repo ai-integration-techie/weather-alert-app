@@ -1,0 +1,36 @@
+runtime: python39
+
+env_variables:
+  GOOGLE_CLOUD_PROJECT_ID: your-project-id
+  BIGQUERY_DATASET_ID: weather_data
+  BIGQUERY_LOCATION: US
+  AGENT_REGION: us-central1
+  NWS_USER_AGENT: WeatherInsightsAdvisor/1.0
+  NODE_ENV: production
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.6
+
+resources:
+  cpu: 1
+  memory_gb: 2
+  disk_size_gb: 10
+
+entrypoint: python -m uvicorn python_src.main:app --host 0.0.0.0 --port $PORT
+
+handlers:
+- url: /api/.*
+  script: auto
+  secure: always
+
+- url: /.*
+  script: auto
+  secure: always
+
+skip_files:
+- ^(.*/)?\..*$
+- ^(.*/)?.*\.md$
+- ^(.*/)?node_modules$
+- ^(.*/)?src$
